@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 300px;
+            gap: 50px;
+        }
+        .nav{
+            display: flex;
+            align-items: center;
+        }
+        .line{
+            width: 100px;
+            height: 3px;
+            background-color: grey;
+        }
+        .circle{
+            border-radius: 50%;
+            background-color: rgb(74, 74, 22);
+            padding: 20px;
+            color:white;
+        }
+        .button{
+            display: flex;
+            gap: 20px;
+
+        }
+        .buttonPrev{
+            background-color: green;
+            color: white;
+            font-weight: 600;
+            border-radius: 5px;
+            border-color: transparent;
+            padding: 10px 15px;
+        }
+        .buttonNext{
+            background-color: grey;
+            color: white;
+            font-weight: 600;
+            border-radius: 5px;
+            border-color: transparent;
+            padding: 5px 10px;
+        }
+        button:hover{
+            color: red;
+        }
+        #id4{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <div class="circle" style="background-color: brown;">
+                1
+            </div>
+            <div class="line"></div>
+            <div class="circle" style="background-color: brown;">
+                2
+            </div>
+            <div class="line"></div>
+            <div class="circle" style="background-color: brown;">
+                3
+            </div>
+            <div class="line"></div>
+            <div class="circle" style="background-color: green;">
+                4
+            </div>
+        </div>
+        <div class="button">
+            <button class="buttonPrev" onclick="Prev()">Prev</button>
+            <button class="buttonNext" onclick="Next()">Next</button>
+        </div>
+    </div>
+    <script>
+        let listCircle= document.getElementsByClassName("circle");
+        function Prev(){
+            for(let i=0;i<listCircle.length;i++){
+                if(listCircle[i].style.backgroundColor=="green"){
+                    if(i>0){
+                    listCircle[i].style.backgroundColor="brown";
+                    listCircle[i-1].style.backgroundColor="green";
+                    }
+                }
+            }
+        }
+        function Next(){
+            for(let i=0;i<listCircle.length;i++){
+                if(listCircle[i].style.backgroundColor=="green"){
+                     if(i<3){
+                    listCircle[i].style.backgroundColor="brown";
+                   listCircle[i+1].style.backgroundColor="green";
+                     break;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
